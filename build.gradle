@@ -27,6 +27,11 @@ bootRun {
 	systemProperty 'spring.profiles.active', 'testdata'
 }
 
+bootBuildImage {
+	imageName = "${project.name}"
+	environment = ["BP_JVM_VERSION": "17.*"]
+}
+
 dependencies {
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
