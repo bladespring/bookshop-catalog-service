@@ -1,4 +1,4 @@
-package com.bladespring.bookshop.catalogservice;
+package com.bladespring.bookshop.catalogservice.web;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
