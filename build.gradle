@@ -22,6 +22,10 @@ ext {
   set('testcontainersVersion', "1.18.3")
 }
 
+bootRun {
+	systemProperty 'spring.profiles.active', 'testdata'
+}
+
 dependencies {
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
