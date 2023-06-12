@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: bookshop-catalog-service
+  name: bookshop-catalog-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookshop-catalog-service
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: bookshop-catalog-service
+    spec:
+      containers:
+      - image: ghcr.io/bladespring/bookshop-catalog-service:latest
+        name: bookshop-catalog-service
+        resources: {}
+        env:
+          - name: SPRING_DATASOURCE_URL
+            value: jdbc:postgresql://bookshop-postgres/bookshopdb_catalog
+          - name: SPRING_CLOUD_CONFIG_URI
+            value: http://bookshop-config-service:8888
+          - name: SPRING_PROFILES_ACTIVE
+            value: prod
+status: {}
