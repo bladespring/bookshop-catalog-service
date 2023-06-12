@@ -18,14 +18,15 @@ spec:
         app: bookshop-catalog-service
     spec:
       containers:
-      - image: ghcr.io/bladespring/bookshop-catalog-service:latest
+      - image: ghcr.io/bladespring/bookshop-catalog-service:0.0.1
         name: bookshop-catalog-service
+        imagePullPolicy: IfNotPresent
         resources: {}
         env:
           - name: SPRING_DATASOURCE_URL
             value: jdbc:postgresql://bookshop-postgres/bookshopdb_catalog
           - name: SPRING_CLOUD_CONFIG_URI
-            value: http://bookshop-config-service:8888
+            value: http://bookshop-config-service
           - name: SPRING_PROFILES_ACTIVE
             value: prod
 status: {}
